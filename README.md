@@ -57,13 +57,45 @@
         
     2. 几个重要问题
     
-       如何改变promise的状态?
-       一个promise指定多个成功/失败回调函数, 都会调用吗?
-      promise.then()返回的新promise的结果状态由什么决定?
-      改变promise状态和指定回调函数谁先谁后?
-      promise如何串连多个操作任务?
-      promise异常传(穿)透?
-      中断promise链
+      1， 如何改变promise的状态?
+       
+              resolve(value) 如果当前的状态是pedding 就会改为 resolved
+              reject(reason) 如果当前状态是pedding 就会改为 rejected
+         
+      2，一个promise指定多个成功/失败回调函数, 都会调用吗?
+       
+            当promise状态改变时，对应的回调函数都会调用
+         
+         
+      3， promise.then()返回的新promise的结果状态由什么决定?
+      
+            简单表达：由then()指定的回调函数的执行结果来决定
+         
+            详细表达：
+                如果回调函数抛出异常，新的promise变为reject，reason为异常的原因
+                如果返回的为非promise的任意值，则状态为resolved value为其返回值
+                如果返回的为一个新的promise，状态为新的promise的结果
+        
+           
+      4， 改变promise状态和指定回调函数谁先谁后?
+      
+              都有可能，正常情况下时先指定回调函数再改变状态，但也可以先改变状态，再指定回调。
+        
+        
+      5，promise如何串连多个操作任务(如何实现链式调用)?
+      
+            promise的then()返回一个新的promise，可以写成then(). 的链式调用
+            通过then 的链式调用串联多个 同步/异步 任务
+            说明：如果想在then()中执行异步任务，必须返回一个新的promise不能直接调用 resolve / reject
+          
+        
+      6, promise异常传(穿)透?
+            当使用promise的then链式调用的时候，可以到最后再指定失败的回调函数
+            前面的任意操作出现了异常，都会传到最后的失败的回调中处理
+            
+      7, 中断promise链
+      　   在回调函数中返回一个pedding状态的promise对象
+            
      
         
 
