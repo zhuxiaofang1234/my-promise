@@ -61,6 +61,7 @@
        
               resolve(value) 如果当前的状态是pedding 就会改为 resolved
               reject(reason) 如果当前状态是pedding 就会改为 rejected
+              抛出异常：如果当前是pendding就会变为rejected
          
       2，一个promise指定多个成功/失败回调函数, 都会调用吗?
        
