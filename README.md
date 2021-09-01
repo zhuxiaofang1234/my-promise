@@ -39,6 +39,7 @@
         pending变为rejected
 
 ### 2.2 promise流程图
+![promise流程图](https://github.com/zhuxiaofang1234/my-promise/blob/main/promise-process.png)
 
 
 
