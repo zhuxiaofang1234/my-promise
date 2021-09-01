@@ -41,6 +41,32 @@
 ### 2.2 promise流程图
 ![promise流程图](https://github.com/zhuxiaofang1234/my-promise/blob/main/promise-process.png)
 
+### 2.3 为什么要用promise?
+    1,指定回调函数的方式更加灵活：可以在请求发出甚至结束后指定回调函数
+    2，支持链式调用，可以解决回调地狱问题
+### 如何使用Promise?
+    1,主要API
+    
+        Promise构造函数：Promsie(excutor){}
+        Promise.prototype.then方法: (onResolved, onRejected) => {}
+        Promise.prototype.catch方法: (onRejected) => {}
+        Promise.resolve方法: (value) => {}
+        Promise.reject方法: (reason) => {}
+        Promise.all方法: (promises) => {}
+        Promise.race方法: (promises) => {}
+        
+    2. 几个重要问题
+    
+       如何改变promise的状态?
+       一个promise指定多个成功/失败回调函数, 都会调用吗?
+      promise.then()返回的新promise的结果状态由什么决定?
+      改变promise状态和指定回调函数谁先谁后?
+      promise如何串连多个操作任务?
+      promise异常传(穿)透?
+      中断promise链
+     
+        
+
 
 
 
