@@ -9,8 +9,15 @@
     </body>
     <script src="./lib/promise.js"></script>
     <script>
-        new Promsie((resolve,reject)=>{
-            
+        debugger
+        let p1 = new Promise((resolve,reject)=>{
+            resolve(1)
+
+        }).then(res=>{
+            console.log(res)
+        },err=>{
+            console.log(err)
         })
+
     </script>
 </html>
