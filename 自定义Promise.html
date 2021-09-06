@@ -10,9 +10,11 @@
     <script src="./lib/promise.js"></script>
     <script>
         const p = new Promise((resolve,reject)=>{
-            setTimeout(()=>{
-                reject(2);
-            },500)
+            setTimeout(() => {
+                reject(2);  
+            }, 500);
+                
+
         });
         p.then(
             value=>{
