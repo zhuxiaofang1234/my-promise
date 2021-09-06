@@ -9,15 +9,28 @@
     </body>
     <script src="./lib/promise.js"></script>
     <script>
-        debugger
-        let p1 = new Promise((resolve,reject)=>{
-            resolve(1)
+        const p = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                reject(2);
+            },500)
+        });
+        p.then(
+            value=>{
+                console.log('onResolved1',value)
+            },
+            reason=>{
+                console.log('onRejected1',reason)
+            }
+        )
 
-        }).then(res=>{
-            console.log(res)
-        },err=>{
-            console.log(err)
-        })
+        p.then(
+            value=>{
+                console.log('onResolved2',value)
+            },
+            reason=>{
+                console.log('onRejected2',reason)
+            }
+        )
 
     </script>
 </html>
